@@ -1,0 +1,5 @@
+# robots.txt for Siyak Steel International
+User-agent: *
+Allow: /
+
+Sitemap: https://siyaksteel.com/sitemap.xml

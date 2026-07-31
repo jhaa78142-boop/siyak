@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+/* Font loading is handled from index.html to minimize render-blocking CSS import. */
+
+@theme {
+  /* -------------------------------------------------------------------------
+   * Brand palette derived from the Siyak Steel logo
+   * ------------------------------------------------------------------------- */
+  --color-ink: #07191a;          /* near-black teal, dark section bg */
+  --color-deep: #0b3537;         /* deep teal */
+  --color-teal: #0f8a8c;         /* primary brand teal */
+  --color-teal-light: #14b8ad;   /* bright aqua accent */
+  --color-teal-pale: #d7eeee;    /* pale teal tint */
+  --color-paper: #fdfefe;        /* near-white background */
+  --color-steel: #aab8b9;        /* steel grey */
+  --color-steel-dark: #5b6c6d;   /* darker steel grey text on light */
+  --color-amber: #e8a23a;        /* hot-metal amber — use only for alerts/highlights */
+
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-marquee-slow: marquee 40s linear infinite;
+  --animate-marquee-fast: marquee 16s linear infinite;
+  --animate-scan: scan 4s ease-in-out infinite;
+  --animate-float-y: floaty 5s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes scan {
+  0%, 100% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translateY(100%); opacity: 1; }
+  90% { opacity: 1; }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-deep);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* clip prevents horizontal scrollbars from rogue transforms without
+     creating a scroll container — sticky sidebar keeps working */
+  overflow-x: clip;
+  max-width: 100vw;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  /* clip (not hidden) so position:sticky on CategorySidebar is not blocked */
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-teal-light);
+  color: white;
+}
+
+/* Visible keyboard focus, kept across the whole app */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-teal-light);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+ * BRAND SHAPE — Diagonal corner clip
+ * Used on: primary CTAs, prominent buttons, caption banners.
+ * Use clip-corner-sm for grade badges/chips.
+ * Use clip-corner-lg for hero-scale CTAs.
+ * ============================================================ */
+
+/** Standard corner clip — primary CTAs and card accents */
+.clip-corner {
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
+/** Smaller corner clip — grade badges, tag chips, small elements */
+.clip-corner-sm {
+  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
+}
+
+/** Larger corner clip — hero CTAs, large prominent banners */
+.clip-corner-lg {
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+}
+
+/* ============================================================
+ * ELEVATION SYSTEM — Shadow tokens
+ * Replace ad-hoc shadow-lg / shadow-2xl combinations with these.
+ * ============================================================ */
+
+/** Resting state — cards and panels on white backgrounds */
+.shadow-rest {
+  box-shadow: 0 1px 3px rgba(7,25,26,0.06), 0 4px 12px rgba(7,25,26,0.05);
+}
+
+/** Hover state — cards on pointer hover */
+.shadow-hover {
+  box-shadow: 0 4px 16px rgba(15,138,140,0.12), 0 2px 8px rgba(7,25,26,0.08);
+}
+
+/** Elevated state — modals, drawers, popovers above page content */
+.shadow-elevated {
+  box-shadow: 0 20px 60px rgba(7,25,26,0.18), 0 4px 16px rgba(7,25,26,0.10);
+}
+
+/* ============================================================
+ * SPEC-LABEL — Industrial data type treatment
+ * Apply to: grade names, ASTM/ASME/UNS identifiers, dimensions,
+ * chemical element symbols, standard numbers.
+ * This is the brand's typographic differentiator — makes data look
+ * authoritative and precise, not generic body text.
+ * ============================================================ */
+.spec-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Spec-label as teal (for positive/active data) */
+.spec-label-teal {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-teal);
+}
+
+/* ============================================================
+ * SECTION SPACING — Locked scale
+ * RULE: Only use py-16, py-24, or py-32 for top-level sections.
+ * NO py-20, py-28, or arbitrary values.
+ *   py-16 → tight accent bands (MarqueeStrip, StatsBand)
+ *   py-24 → standard content sections (most pages)
+ *   py-32 → hero-weight sections (homepage hero equivalent)
+ * ============================================================ */
+
+/* ============================================================
+ * TEXTURE UTILITIES — Subtle industrial surface treatments
+ * Used on dark sections to add depth without being decorative.
+ * ============================================================ */
+
+/** Subtle grid overlay texture — dark sections */
+.grid-texture {
+  background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/** Plate/metal texture — brushed steel diagonal pattern for dark sections */
+.plate-texture {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    rgba(255,255,255,0.035) 4px,
+    rgba(255,255,255,0.035) 5px
+  );
+}
+
+/** Subtle grid overlay texture — light/white sections */
+.grid-texture-light {
+  background-image: linear-gradient(rgba(15,138,140,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,138,140,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Prevent overflow from 3D transforms on product grids */
+.products-grid-wrap {
+  overflow: hidden;
+}
+
+/* ============================================================
+ * SPEC TABLE — Horizontal scroll affordance
+ * Adds fade-out shadow on right edge when table overflows on mobile.
+ * ============================================================ */
+.spec-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+.spec-table-scroll::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right, transparent, rgba(247,249,249,0.9));
+  pointer-events: none;
+  border-radius: 0 0 0 0;
+  opacity: 1;
+}
+
+@media (min-width: 640px) {
+  .spec-table-scroll::after {
+    display: none;
+  }
+}
