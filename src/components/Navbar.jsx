@@ -31,9 +31,9 @@ export default function Navbar({ onOpenQuote }) {
   return (
     <>
       <header className="relative sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md shadow-deep/5">
-        <nav className="relative max-w-7xl mx-auto px-6 flex items-center justify-between h-24">
+        <nav className="relative max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3 shrink-0">
-            <img src={logo} alt="Siyak Steel International" className="h-20 w-auto" />
+            <img src={logo} alt="Siyak Steel International" className="h-16 w-auto" />
           </Link>
 
           {/* Desktop links */}

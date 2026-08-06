@@ -114,7 +114,7 @@ export default function About() {
             <p className="mt-5 text-steel-dark leading-relaxed">
               From our Mumbai base, Siyak Steel International ships to <span className="font-semibold text-teal">40+ countries</span>,
               with a growing footprint across the Middle East, Southeast Asia, Africa and Europe.
-              Twenty-five years of trade relationships mean our documentation, packing and logistics
+              Thirteen years of trade relationships mean our documentation, packing and logistics
               partners are built for one thing: getting certified material through customs and onto
               your site without surprises.
             </p>

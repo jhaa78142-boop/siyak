@@ -1679,7 +1679,7 @@ export const industries = [
 ];
 
 export const stats = [
-  { label: "Years of Trade", value: 25, suffix: "+" },
+  { label: "Years of Trade", value: 13, suffix: "+" },
   { label: "Countries Served", value: 40, suffix: "+" },
   { label: "Tonnes Stocked", value: 12000, suffix: "+" },
   { label: "Product Lines", value: 20, suffix: "" },

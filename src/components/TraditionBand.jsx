@@ -1,21 +1,17 @@
 import Reveal from "./Reveal";
 import { companyInfo } from "../data/products";
 
-/**
- * Slim statement band directly under the Hero — matches neonalloys.com's
- * homepage pattern: a one-line intro sentence over a bold centered motto.
- */
 export default function TraditionBand() {
   return (
-    <section className="bg-teal-pale/40 border-y border-teal/15 py-8 sm:py-10">
-      <Reveal className="max-w-3xl mx-auto px-6 text-center">
-        <p className="text-steel-dark text-sm sm:text-base leading-relaxed">
+    <section className="bg-gray-100 border-y border-gray-200 py-3 sm:py-4">
+      <Reveal className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p className="text-steel-dark text-[14px] sm:text-[16px] md:text-[18px] font-normal leading-snug sm:leading-[1.6]">
           Exporters of Steel with huge stocks —{" "}
-          <span className="font-semibold text-teal">{companyInfo.name}</span>{" "}
-          has become one of the most reliable sources.
+          <span className="font-semibold">{companyInfo.name}</span>{" "}
+          became one of the most reliable sources.
         </p>
-        <p className="mt-3 font-display uppercase text-xl sm:text-2xl md:text-3xl text-deep tracking-wide font-bold">
-          &ldquo;Steel Is Not Our Business, It&rsquo;s Our Tradition&rdquo;
+        <p className="mt-1 text-deep font-bold uppercase text-[13px] sm:text-[15px] md:text-[18px] leading-tight tracking-wide">
+          &ldquo;STEEL IS NOT OUR BUSINESS, ITS OUR TRADITION&rdquo;
         </p>
       </Reveal>
     </section>
