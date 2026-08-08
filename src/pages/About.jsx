@@ -1,4 +1,4 @@
-import { Target, Eye, Award, Handshake } from "lucide-react";
+import { Target, Eye, Award, Handshake, Flame, Cpu, Factory, ShieldCheck } from "lucide-react";
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import CTABand from "../components/CTABand";
@@ -104,13 +104,14 @@ export default function About() {
 
       <StatsBand />
 
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-10 items-start">
+      <section className="bg-paper py-20">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-12 items-start">
           <Reveal className="lg:col-span-2">
             <span className="text-xs uppercase tracking-[0.22em] text-teal font-semibold">Global Reach</span>
             <h2 className="font-display uppercase text-3xl mt-3 text-deep leading-tight">
               Trusted well beyond our home port
             </h2>
+            <div className="mt-3 w-12 h-1 bg-teal rounded-full" />
             <p className="mt-5 text-steel-dark leading-relaxed">
               From our Mumbai base, Siyak Steel International ships to <span className="font-semibold text-teal">40+ countries</span>,
               with a growing footprint across the Middle East, Southeast Asia, Africa and Europe.
@@ -120,16 +121,17 @@ export default function About() {
             </p>
           </Reveal>
           <Reveal className="lg:col-span-3" delay={0.1}>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-5">
               {[
-                { title: "Process & Energy", desc: "Oil & gas, power generation and cement plants running on our pressure-rated piping and structural steel." },
-                { title: "Precision Manufacturing", desc: "Aerospace, automotive and pharmaceutical lines that depend on tight tolerances and traceable material certs." },
-                { title: "Heavy Industry", desc: "Paper, sugar and railway infrastructure projects specified on wear-resistant plates, bars and fasteners." },
-                { title: "Stockist Reliability", desc: "12,000+ tonnes held in inventory across 17 product lines, so orders ship without waiting on a mill run." },
+                { icon: Flame,        title: "Process & Energy",         desc: "Oil & gas, power generation and cement plants running on our pressure-rated piping and structural steel." },
+                { icon: Cpu,          title: "Precision Manufacturing",   desc: "Aerospace, automotive and pharmaceutical lines that depend on tight tolerances and traceable material certs." },
+                { icon: Factory,      title: "Heavy Industry",            desc: "Paper, sugar and railway infrastructure projects specified on wear-resistant plates, bars and fasteners." },
+                { icon: ShieldCheck,  title: "Stockist Reliability",      desc: "12,000+ tonnes held in inventory across 17 product lines, so orders ship without waiting on a mill run." },
               ].map((item) => (
-                <div key={item.title} className="border border-teal-pale rounded-lg p-5 bg-paper">
-                  <h3 className="font-display uppercase text-sm text-deep">{item.title}</h3>
-                  <p className="mt-2 text-[13px] text-steel-dark leading-relaxed">{item.desc}</p>
+                <div key={item.title} className="border-l-4 border-teal bg-white rounded-lg p-5 shadow-sm hover:shadow-md hover:border-teal-light transition-all duration-300">
+                  <item.icon size={22} className="text-teal mb-3" strokeWidth={1.8} />
+                  <h3 className="font-display uppercase text-sm text-deep mb-2">{item.title}</h3>
+                  <p className="text-[13px] text-steel-dark leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>

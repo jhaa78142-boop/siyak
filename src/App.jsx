@@ -112,6 +112,10 @@ export default function App() {
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [cookieSettingsOpen, setCookieSettingsOpen] = useState(false);
   const [consentPending, setConsentPending] = useState(false);
+  const location = useLocation();
+
+  // Pages that are full-screen experiences with no footer/floats
+  const isBookPage = location.pathname === "/nickel-alloy-catalogue";
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -130,18 +134,21 @@ export default function App() {
     <>
       <PageLoader />
       <ScrollToTopOnRoute />
-      <TopBar />
-      <Navbar onOpenQuote={() => setQuoteOpen(true)} />
+      {!isBookPage && <TopBar />}
+      {!isBookPage && <Navbar onOpenQuote={() => setQuoteOpen(true)} />}
       <main className="flex-1">
         <AnimatedRoutes />
       </main>
-      <Footer onOpenCookieSettings={() => setCookieSettingsOpen(true)} />
-      <WhatsAppFloat hideForCookieBanner={cookieBannerVisible} />
+      {/* Hide Footer, WhatsApp float, and Cookie banner on the book page — matches NeonAlloys */}
+      {!isBookPage && <Footer onOpenCookieSettings={() => setCookieSettingsOpen(true)} />}
+      {!isBookPage && <WhatsAppFloat hideForCookieBanner={cookieBannerVisible} />}
       <QuoteDrawer open={quoteOpen} onClose={() => setQuoteOpen(false)} />
-      <CookieConsent
-        open={cookieSettingsOpen}
-        onClose={closeCookieBanner}
-      />
+      {!isBookPage && (
+        <CookieConsent
+          open={cookieSettingsOpen}
+          onClose={closeCookieBanner}
+        />
+      )}
     </>
   );
 }

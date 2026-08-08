@@ -1,6 +1,8 @@
-import PageHero from "../components/PageHero";
-import Reveal from "../components/Reveal";
-import CTABand from "../components/CTABand";
+/**
+ * NickelAlloyCatalogue — exact replica of neonalloys.com/nickel-products.php layout.
+ * The page is ONLY the book on a pure black background.
+ * No PageHero, no description text, no CTA band — nothing but the book.
+ */
 import NeonAlloysBook from "../components/BookCatalogue";
 import SEO from "../components/SEO";
 import { OrganizationLd, BreadcrumbLd, WebPageLd } from "../components/JsonLd";
@@ -12,6 +14,7 @@ export default function NickelAlloyCatalogue() {
 
   return (
     <>
+      {/* SEO only — no visible page chrome */}
       <SEO
         title="Nickel Alloy Products"
         description={pageDescription}
@@ -31,28 +34,9 @@ export default function NickelAlloyCatalogue() {
         ]}
       />
 
-      <PageHero
-        eyebrow="Special Products"
-        title="Nickel Alloy Products"
-        crumb="Nickel Alloy Products"
-      />
-
-      <section className="bg-white py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <Reveal className="max-w-3xl mx-auto text-center mb-10">
-            <p className="text-steel-dark leading-relaxed">
-              Click the cover below to open the book, then click any grade to see its
-              chemical composition and key mechanical properties.
-            </p>
-          </Reveal>
-
-          <Reveal>
-            <NeonAlloysBook />
-          </Reveal>
-        </div>
-      </section>
-
-      <CTABand />
+      {/* The book IS the page — black background fills everything below navbar */}
+      <NeonAlloysBook />
     </>
   );
 }
+
