@@ -22,8 +22,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import coverBg from "../assets/hero-bg/book-cover-steel-pipe.webp";
-import siyakLogo from "../assets/siyak-logo-dark.png";
+import coverBg from "../assets/hero-bg/aj.webp";
+import { companyInfo } from "../data/products";
 
 /* ══════════════════════════════════════════════════════════
    ALL PRODUCT DATA  (from neonalloys.com HTML source)
@@ -189,21 +189,21 @@ const RIGHT_SECTIONS  = [
   { header: "NICKEL ALLOYS",items: ["SMO-254"] },
 ];
 
-/* floating cover labels (decorative) — spread across the full-width cover,
-   loosely echoing the 3-column layout underneath (left/mid/right thirds) */
+/* floating cover labels (decorative) — original Siyak Steel marketing lines
+   spread across the full-width cover (left/mid/right thirds) */
 const COVER_LABELS = [
-  { text:"NICKEL 200",      x:"16%", y:"12%", size:12, color:"#fff" },
-  { text:"MONEL",           x:"50%", y:"9%",  size:22, color:"#fff", bold:true },
-  { text:"MONEL-K 500",     x:"82%", y:"13%", size:12, color:"#fff" },
-  { text:"HASTELLOY C-276", x:"14%", y:"30%", size:12, color:"#fff" },
-  { text:"INCONEL",         x:"50%", y:"36%", size:30, color:"#5cb85c", bold:true },
-  { text:"HASTELLOY C-22",  x:"84%", y:"30%", size:12, color:"#fff" },
-  { text:"NICKEL 201",      x:"15%", y:"52%", size:12, color:"#fff" },
-  { text:"ALLOY",           x:"50%", y:"57%", size:22, color:"#fff", bold:true },
-  { text:"ALLOY-904L",      x:"84%", y:"52%", size:12, color:"#fff" },
-  { text:"CUPRO-NICKEL",    x:"16%", y:"72%", size:12, color:"#fff" },
-  { text:"TITANIUM",        x:"50%", y:"77%", size:20, color:"#fff", bold:true },
-  { text:"SMO-254",         x:"83%", y:"72%", size:12, color:"#fff" },
+  { text:"READY STOCKS",    x:"16%", y:"12%", size:12, color:"#fff" },
+  { text:"PREMIUM GRADES",  x:"50%", y:"9%",  size:20, color:"#fff", bold:true },
+  { text:"GLOBAL EXPORT",   x:"82%", y:"13%", size:12, color:"#fff" },
+  { text:"13+ YEARS",       x:"14%", y:"30%", size:12, color:"#fff" },
+  { text:"NICKEL ALLOYS",   x:"50%", y:"36%", size:28, color:"#5cb85c", bold:true },
+  { text:"FAST DISPATCH",   x:"84%", y:"30%", size:12, color:"#fff" },
+  { text:"CUSTOM SIZES",    x:"15%", y:"52%", size:12, color:"#fff" },
+  { text:"QUALITY ASSURED", x:"50%", y:"57%", size:20, color:"#fff", bold:true },
+  { text:"THIRD-PARTY QC",  x:"84%", y:"52%", size:12, color:"#fff" },
+  { text:"MUMBAI STOCKYARD",x:"16%", y:"72%", size:12, color:"#fff" },
+  { text:"WORLDWIDE SHIP",  x:"50%", y:"77%", size:18, color:"#fff", bold:true },
+  { text:"EXPORT PACKING",  x:"83%", y:"72%", size:12, color:"#fff" },
 ];
 
 /* ══════════════════════════════════════════════════════════
@@ -347,11 +347,11 @@ function PanelColumn({ sections, onSelect, footer }) {
           fontFamily:"Arial,sans-serif",fontSize:11,color:"#fff",lineHeight:1.7,
           flexShrink:0,
         }}>
-          <strong>Siyak Steel International</strong><br/>
-          91/95, Kika Street, Gulalwadi<br/>
-          Mumbai – 400 004 (India)<br/>
-          Tel: +91 22 2345 6789<br/>
-          Email: info@siyaksteel.com
+          <strong>{companyInfo.name}</strong><br/>
+          Kikabhai Mansion, Kika Street<br/>
+          Girgaon, Mumbai – 400004<br/>
+          Tel: {companyInfo.phones[1]}<br/>
+          Email: {companyInfo.emails[0]}
         </div>
       )}
     </div>
@@ -409,18 +409,8 @@ export default function NeonAlloysBook() {
               {/* bg image */}
               <img src={coverBg} alt="" style={{
                 position:"absolute",inset:0,width:"100%",height:"100%",
-                objectFit:"cover",filter:"brightness(0.60)",
+                objectFit:"cover",
               }}/>
-
-              {/* Siyak logo box */}
-              <div style={{
-                position:"absolute",top:12,left:"50%",transform:"translateX(-50%)",
-                background:"#fff",borderRadius:"3px",padding:"5px 8px",
-                boxShadow:"0 2px 10px rgba(0,0,0,0.5)",zIndex:3,
-              }}>
-                <img src={siyakLogo} alt="Siyak Steel International"
-                  style={{height:36,width:"auto",objectFit:"contain",display:"block"}}/>
-              </div>
 
               {/* floating labels */}
               {COVER_LABELS.map((l,i)=>(

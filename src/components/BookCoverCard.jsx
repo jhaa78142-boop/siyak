@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import coverBg from "../assets/hero-bg/book-cover-steel-pipe.webp";
-import siyakLogo from "../assets/siyak-logo-dark.png";
+import coverBg from "../assets/hero-bg/aj.webp";
 
 /**
- * BookCoverCard — the middle tile in "OUR SPECIAL PRODUCTS", matching
- * neonalloys.com's homepage layout where the Nickel Alloy book cover sits
- * between two other product cards. Clicking it opens the full interactive
- * book on its own page (/nickel-alloy-catalogue), same as neonalloys.com
- * links its homepage thumbnail through to nickel-products.php.
+ * BookCoverCard — the middle tile in "OUR SPECIAL PRODUCTS".
+ * Clicking it opens the full interactive book on its own page
+ * (/nickel-alloy-catalogue).
  */
 export default function BookCoverCard() {
   return (
@@ -22,13 +19,7 @@ export default function BookCoverCard() {
             src={coverBg}
             alt="Nickel Alloy Products"
             className="w-full h-full object-cover"
-            style={{ filter: "brightness(0.6)" }}
           />
-        </div>
-
-        {/* Siyak logo badge, top center — matches the closed-book cover */}
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-white rounded-sm px-2 py-1 shadow-md z-10">
-          <img src={siyakLogo} alt="" className="h-6 w-auto object-contain block" />
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a14]/90 via-[#0a1a14]/55 to-transparent" />
