@@ -62,7 +62,15 @@ export default function FeaturedProducts() {
                           <ArrowUpRight size={16} />
                         </span>
                       </div>
-                      <p className="text-xs sm:text-[13px] text-deep leading-relaxed">{cat.short}</p>
+                      <p className="text-xs sm:text-[13px] text-deep leading-relaxed flex-1">{cat.short}</p>
+                      {cat.sizes && (
+                        <div className="mt-3 pt-3 border-t border-teal-pale/50 flex items-center justify-between">
+                          <span className="text-[11px] spec-label text-steel-dark truncate">{cat.sizes}</span>
+                          <span className="shrink-0 inline-flex items-center gap-1 font-display text-[10px] font-semibold uppercase tracking-[0.12em] text-teal/85">
+                            Details <ArrowUpRight size={11} />
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </Link>
                 </TiltCard>

@@ -134,7 +134,7 @@ export default function ProductDetail() {
       <PageHero eyebrow="Product Line" title={category.name} crumb={category.name} />
 
       {/* NEONALLOYS STYLE BREADCRUMB STRIP — "You are here: Products /" */}
-      <section className="bg-paper border-b border-teal-pale/50">
+      <section className="bg-white border-b border-teal-pale/50">
         <div className="max-w-7xl px-6 py-3 text-xs">
           <span className="text-steel-dark">You are here:&nbsp;&nbsp;</span>
           <Link to="/products" className="text-teal hover:underline font-medium">
@@ -146,7 +146,7 @@ export default function ProductDetail() {
       </section>
 
       {/* MAIN 2-COLUMN LAYOUT — left sidebar nav + right document area */}
-      <section className="bg-paper py-10">
+      <section className="bg-white py-10">
         <div className="max-w-7xl px-6 grid lg:grid-cols-[260px_1fr] gap-10">
           {/* =============================================================
               LEFT SIDEBAR — mirrors neonalloys 2-widget sidebar layout:
@@ -175,9 +175,11 @@ export default function ProductDetail() {
                 {category.name}
               </h1>
               <div className="mt-2 h-[3px] w-24 bg-teal" />
-              <p className="mt-5 text-[15px] leading-relaxed text-[#333]">
-                {category.short}
-              </p>
+              <div className="mt-5 space-y-3">
+                {category.short.split("\n\n").map((para, i) => (
+                  <p key={i} className="text-[15px] leading-relaxed text-[#333]">{para}</p>
+                ))}
+              </div>
             </Reveal>
 
             {/* ---- 2. RANGE / FORM / GRADES SPEC BLOCK (+ hero photo) - */}
@@ -244,6 +246,28 @@ export default function ProductDetail() {
                   <p className="mt-4 text-[14.5px] leading-relaxed text-[#333]">
                     {category.items.join(", ")}
                   </p>
+                </div>
+              </Reveal>
+            )}
+
+            {/* ---- 2c. SPEC ROWS TABLE — e.g. Clad Layer / Base Material for Cladded Plates */}
+            {category.specRows?.length > 0 && (
+              <Reveal className="mt-10">
+                <div className="border border-[#ccc] overflow-hidden">
+                  <table className="w-full text-left border-collapse text-[13.5px]">
+                    <tbody>
+                      {category.specRows.map((row, i) => (
+                        <tr key={row.label} className={i !== category.specRows.length - 1 ? "border-b border-[#ccc]" : ""}>
+                          <td className="px-5 py-3.5 font-bold text-deep whitespace-nowrap w-[160px] align-top border-r border-[#ccc] bg-white">
+                            {row.label}
+                          </td>
+                          <td className="px-5 py-3.5 text-[#333] leading-relaxed bg-white">
+                            {row.value}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </Reveal>
             )}

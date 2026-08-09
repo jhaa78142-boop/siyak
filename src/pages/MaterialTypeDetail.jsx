@@ -71,7 +71,7 @@ export default function MaterialTypeDetail() {
       <PageHero eyebrow={category.name} title={active.name} crumb={active.name} />
 
       {/* NEONALLOYS STYLE BREADCRUMB STRIP — "You are here: Products / Cat / Type" */}
-      <section className="bg-paper border-b border-teal-pale/50">
+      <section className="bg-white border-b border-teal-pale/50">
         <div className="max-w-7xl px-6 py-3 text-xs">
           <span className="text-steel-dark">You are here:&nbsp;&nbsp;</span>
           <Link to="/products" className="text-teal hover:underline font-medium">
@@ -87,7 +87,7 @@ export default function MaterialTypeDetail() {
       </section>
 
       {/* MAIN 2-COLUMN LAYOUT */}
-      <section className="bg-paper py-10">
+      <section className="bg-white py-10">
         <div className="max-w-7xl px-6 grid lg:grid-cols-[260px_1fr] gap-10">
           {/* =============== LEFT SIDEBAR — 2 widgets like ProductDetail ============ */}
           <aside className="space-y-6">

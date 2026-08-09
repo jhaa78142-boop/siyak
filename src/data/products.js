@@ -726,7 +726,7 @@ export const productCategories = [
     name: "Sheets & Plates",
     short: "We have been offering to our clients a vast range of Sheets and Coils that are offered in various specifications to our clients.",
     grades: ["Nickel 200/201", "Monel 400", "Inconel 600/601/625/825", "Alloy 20/CB3", "Hastelloy C276", "SS 304 to 430", "Carbon Steel A36/A516", "Alloy Steel A387 Gr.2-22"],
-    sizes: "0.5 mm To 200 mm thick in 1000 mm To 3000 mm width & 2500 mm To 12500 mm length",
+    sizes: "0.5 mm To 200 mm thick in 1000 mm To 3000 mm width & 2500 mm To 12500 mm length available with NACE MR 01-75",
     standards: ["ASTM A240", "A516", "A387", "A204", "IS 2062", "IS 2002", "DIN 17175", "NACE MR 01-75"],
     form: "Hot Rolled, Cold Rolled, Coils, Sheared Plates, Boiler Quality, Cladded",
     items: ["Hot Rolled Plates", "Cold Rolled Sheets", "Chequered Plates", "Coils", "Boiler Quality Plates"],
@@ -1391,44 +1391,7 @@ Rating: 150# to 2500# (ASME B16.34 / API 600)`,
       },
     ],
   },
-  {
-    slug: "electropolished-fittings",
-    name: "Electropolished Fittings",
-    short: "Fittings finished to a mirror, crevice-free surface for pharmaceutical, dairy and high-purity process lines where product contact demands minimal roughness and easy clean-in-place.",
-    grades: ["SS 304/316L"],
-    sizes: "1/2\" to 12\" NB",
-    standards: ["ASME BPE", "3-A Sanitary Standards"],
-    form: "Tri-Clamp & Weld Ends, Ra <32 mirror finish",
-    items: ["Tri-Clamp Fittings", "Elbows", "Tees", "Reducers", "Ferrules"],
-    image: electropolishedFittingsImg,
-    materialTypes: [
-      {
-        name: "Stainless Steel Electropolished Fittings",
-        grades: ["SS 304", "SS 316L"],
-        image: electropolishedFittingsImg,
-        desc: "Electropolishing removes surface iron and micro-roughness so bacteria and residue cannot lodge in the fitting — the standard requirement for pharma, dairy and high-purity process piping.",
-      },
-    ],
-  },
-  {
-    slug: "electropolished-pipe",
-    name: "Electropolished Pipe",
-    short: "Sanitary-grade tubing polished to a fine surface finish for hygienic process piping in pharma, biotech and semiconductor-grade systems.",
-    grades: ["SS 304/316L"],
-    sizes: "1/2\" to 12\" NB, Ra <20 on request",
-    standards: ["ASME BPE", "SEMI F20"],
-    form: "Seamless / Welded & Polished, Ra <20 on request",
-    items: ["Sanitary Tubing", "Polished Process Pipe"],
-    image: electropolishedPipeImg,
-    materialTypes: [
-      {
-        name: "Stainless Steel Electropolished Pipe",
-        grades: ["SS 304", "SS 316L"],
-        image: electropolishedPipeImg,
-        desc: "Interior-polished tube for sanitary process lines and semiconductor gas/liquid systems, finished to tightly controlled surface-roughness values.",
-      },
-    ],
-  },
+
   {
     slug: "wire-mesh",
     name: "Wire Mesh",
@@ -1553,12 +1516,16 @@ Carbon Steel: IS 2062 / A516 Gr.70 — Nickel Alloy: Monel 400, Inconel 625`,
   {
     slug: "cladded-plates",
     name: "Cladded Plates",
-    short: "Explosion cladding is a process wherein a cladding plate is positioned over the backer plate with a small gap. Specially made explosives are spread on top of the cladding plate.",
+    short: "According to customer requirements we produce clad plates of carbon or chromium-molybdenum steel and stainless steel.\n\nExplosion cladding is a process wherein a cladding plate is positioned over the backer plate with a small gap. Specially made explosives are spread on top of the cladding plate. On detonation the cladding plate is accelerated towards the backer plate and collides with it at a high velocity. This collision takes place progressively from one end of the plate to the other in micro seconds.",
     grades: ["SS 304L/316L Clad Carbon Steel", "Inconel 625 Clad", "Duplex 2205 Clad"],
     sizes: "Base 6mm–150mm thick, clad layer 1.5mm–6mm",
     standards: ["ASTM A263 / A264 / A265"],
     form: "Explosion Bonded or Weld Overlay Cladded Plates",
     items: ["Explosion Bonded Clad Plates", "Weld Overlay Clad Plates"],
+    specRows: [
+      { label: "Clad Layer", value: "Stainless Steel, Duplex, Titanium, Zirconium, Tantalum, Al-Bronze, Nickel, Nickel Alloys, Aluminium, Copper, Copper Alloys" },
+      { label: "Base Material", value: "Carbon Steel, Stainless Steel, Alloy Steel, Copper, Aluminium" },
+    ],
     image: nickelAlloyPlatesSheetsImg,
     materialTypes: [
       {
@@ -1627,8 +1594,6 @@ const CATALOGUE_ORDER = [
   "valves",
   // Siyak Steel specialty products (appended after neonalloys core categories)
   "perforated-sheets",
-  "electropolished-pipe",
-  "electropolished-fittings",
   "wire-mesh",
 ];
 productCategories.sort(

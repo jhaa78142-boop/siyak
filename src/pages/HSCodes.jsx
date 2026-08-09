@@ -76,7 +76,7 @@ export default function HSCodes() {
         crumb="HS Codes"
       />
 
-      <section className="bg-paper py-12">
+      <section className="bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-[220px_1fr] gap-8 items-start">
 
@@ -146,7 +146,7 @@ export default function HSCodes() {
                 <button
                   type="button"
                   onClick={runSearch}
-                  className="h-11 px-7 uppercase text-sm font-bold tracking-wide bg-[#69c146] hover:bg-[#5cab3c] text-white transition-colors shrink-0"
+                  className="h-11 px-7 uppercase text-sm font-bold tracking-wide bg-teal hover:bg-teal-light text-white transition-colors shrink-0"
                 >
                   SEARCH
                 </button>
@@ -193,15 +193,14 @@ export default function HSCodes() {
                       ) : (
                         rows.map(([code, desc], idx) => {
                           const isTopLevelChapterLink = code.length === 2 && !activeChapter && !query;
-                          const rowBg = idx % 2 === 0 ? "bg-white" : "bg-[#eef3f7]";
 
                           const codeCell = (
-                            <td className="px-5 py-3 text-[13px] font-bold whitespace-nowrap border-t border-[#e5e5e5] text-[#69c146]">
+                            <td className="px-5 py-3 text-[13px] font-bold whitespace-nowrap border-t border-[#e5e5e5] text-teal bg-white">
                               {code}
                             </td>
                           );
                           const descCell = (
-                            <td className="px-5 py-3 text-[13px] border-t border-[#e5e5e5] text-[#333] uppercase leading-relaxed">
+                            <td className="px-5 py-3 text-[13px] border-t border-[#e5e5e5] text-[#333] uppercase leading-relaxed bg-white">
                               {desc === "#N/A" ? (
                                 <span className="text-[#999] italic text-xs normal-case">Not Applicable</span>
                               ) : (
@@ -215,7 +214,7 @@ export default function HSCodes() {
                               <tr
                                 key={`${code}-${idx}`}
                                 onClick={() => openChapter(code)}
-                                className={`${rowBg} cursor-pointer hover:bg-[#e3ecf1] transition-colors`}
+                                className="cursor-pointer hover:bg-teal-pale/30 transition-colors"
                               >
                                 {codeCell}
                                 {descCell}
@@ -224,7 +223,7 @@ export default function HSCodes() {
                           }
 
                           return (
-                            <tr key={`${code}-${idx}`} className={`${rowBg} hover:bg-[#e3ecf1] transition-colors`}>
+                            <tr key={`${code}-${idx}`} className="hover:bg-teal-pale/30 transition-colors">
                               {codeCell}
                               {descCell}
                             </tr>
