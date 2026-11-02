@@ -1,20 +1,23 @@
 # Production deployment
 
-This project is configured for a Vercel frontend, a Render API in Singapore,
-MongoDB Atlas, and a persistent Render disk for files saved under
-`backend/uploads`. The Render web service and disk are paid resources. Confirm
-current provider pricing before creating them.
+This project is configured for a Vercel frontend, a free Render API in
+Singapore, and MongoDB Atlas. Render's free web service sleeps after inactivity
+and has an ephemeral filesystem: files in `backend/uploads` can disappear when
+the service sleeps, restarts, or redeploys. Free instances are for demos and
+testing, not production applications.
 
-Do not upload real patient records until you have verified that each provider,
-region, retention policy, access controls, and applicable privacy/compliance
-requirements are appropriate for the data. A persistent disk alone does not
-make this application compliant for medical data.
+Use synthetic/demo data only. Do not upload real patient records, identity
+documents, prescriptions, or other sensitive health information to this free
+deployment. A free instance is not durable storage or a compliance solution.
 
 ## 1. Prepare the source repository
 
-Push this project directory to a private GitHub repository. Do not commit
-`backend/.env`, `frontend/.env`, `backend/config/serviceAccountKey.json`,
-uploads, or database files. Keep the existing `.gitignore` files in place.
+The app is published in the public GitHub repository
+[`jhaa78142-boop/siyak`](https://github.com/jhaa78142-boop/siyak), on branch
+`deploy/medimind-ai`, under `medimind-ai-fullstack/`. Treat every committed
+file as public. Do not commit `backend/.env`, `frontend/.env`,
+`backend/config/serviceAccountKey.json`, uploads, or database files. Keep the
+existing `.gitignore` files in place.
 
 If the GitHub repository contains this project in a subdirectory rather than at
 its root, configure the Render Blueprint path to
@@ -23,20 +26,21 @@ its root, configure the Render Blueprint path to
 
 ## 2. Create the database
 
-1. Create a MongoDB Atlas cluster in a region near Singapore.
+1. Create a MongoDB Atlas cluster in a region near Singapore. Use synthetic
+   demo data only.
 2. Create a dedicated database user with a strong, unique password.
-3. Configure Atlas Network Access to allow the Render service's outbound IP
-   addresses. Do not allow all internet addresses for a deployment containing
-   personal or health data.
+3. Configure Atlas Network Access for the Render service's outbound IP ranges.
+   Render services can use any address in their regional ranges. Do not use
+   broad public database access for real user or health data.
 4. Copy the Atlas connection string; replace its username, password, and
    database name as directed by Atlas. Add the final value as `MONGODB_URI` in
    Render. Never put it in a `VITE_` variable or commit it.
 
 ## 3. Deploy the API
 
-1. In Render, create a Blueprint from the repository and select `render.yaml`.
-   The manifest creates the Node web service and a 1 GB persistent disk for
-   `backend/uploads`.
+1. In Render, create a Blueprint from branch `deploy/medimind-ai` and set the
+   Blueprint path to `medimind-ai-fullstack/render.yaml`. The manifest creates
+   a Free Node web service with no persistent disk.
 2. Set the prompted `MONGODB_URI` and `CLIENT_URL` values. `CLIENT_URL` must be
    the exact deployed Vercel origin (for example, `https://your-app.vercel.app`,
    with no `/` or `/api` suffix).
@@ -82,13 +86,13 @@ must be the Render service URL, not a localhost URL.
   returns a successful health response.
 - Open the Vercel URL, register a test account, sign in, and verify an
   authenticated API request.
-- Test file upload and retrieval with synthetic test files, then restart the
-  Render service and confirm the files remain available.
+- Test file upload and retrieval using synthetic files only. Do not expect
+  uploaded files to survive service sleep, restart, or redeployment.
 - Check Render logs, Atlas metrics, and Firebase authorized-domain settings.
-- Configure backups, alerts, and a retention/deletion policy before handling
-  real user data.
+- For real user data, move to hosting with appropriate durable, access-
+  controlled storage and verify applicable privacy/compliance requirements
+  before launch.
 
-The dashboard setup, account ownership, billing approval, domain selection,
-secrets, Atlas networking, and provider compliance configuration must be
-completed by the account owner. Do not send credentials or private keys in
-chat.
+The dashboard setup, account ownership, domain selection, secrets, Atlas
+networking, and provider compliance configuration must be completed by the
+account owner. Do not send credentials or private keys in chat.

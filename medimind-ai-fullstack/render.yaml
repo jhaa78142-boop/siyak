@@ -3,15 +3,11 @@ services:
     name: medimind-api
     runtime: node
     region: singapore
-    plan: starter
+    plan: free
     rootDir: backend
     buildCommand: npm ci
     startCommand: npm start
     healthCheckPath: /api/health
-    disk:
-      name: medimind-uploads
-      mountPath: /opt/render/project/src/backend/uploads
-      sizeGB: 1
     envVars:
       - key: NODE_ENV
         value: production

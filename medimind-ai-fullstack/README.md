@@ -16,7 +16,7 @@ see [DEPLOYMENT.md](./DEPLOYMENT.md).
 ```bash
 cd backend
 npm install
-# .env is already filled in with your MongoDB + Brevo credentials.
+# Copy .env.example to .env and add your local service credentials.
 # Firebase Admin needs one more file — see backend/README.md section 3.
 npm run seed     # optional but recommended, populates reference data
 npm run dev
