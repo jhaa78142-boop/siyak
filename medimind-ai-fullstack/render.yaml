@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: medimind-api
+    runtime: node
+    region: singapore
+    plan: starter
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    disk:
+      name: medimind-uploads
+      mountPath: /opt/render/project/src/backend/uploads
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_DB_NAME
+        value: medimind
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: FIREBASE_PROJECT_ID
+        value: medimind-ai-81e65
+      - key: FIREBASE_SERVICE_ACCOUNT_PATH
+        value: /etc/secrets/serviceAccountKey.json

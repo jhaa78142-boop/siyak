@@ -1,0 +1,91 @@
+import {
+  LayoutDashboard, MessageCircle, Stethoscope, ScanLine, Pill, CalendarCheck,
+  AlarmClock, HeartPulse, History, BookOpen, UserCircle, Settings,
+  Users, CalendarClock, Sparkles, FileText, Repeat, FlaskConical, ClipboardList,
+  GraduationCap, ShieldCheck, BarChart3, Gauge, AlertTriangle, Database, Clock,
+  MessageSquare, FileClock, MapPin, Star,
+} from "lucide-react";
+
+export const patientNav = [
+  { to: "/patient", label: "Dashboard", icon: LayoutDashboard, end: true },
+  { to: "/patient/ai-chat", label: "AI Chat", icon: MessageCircle, group: "Ask & get guidance" },
+  { to: "/patient/symptom-checker", label: "Symptom Checker", icon: Stethoscope, group: "Ask & get guidance" },
+  { to: "/patient/medicine-checker", label: "Medicine Checker", icon: Pill, group: "Ask & get guidance" },
+  { to: "/patient/education", label: "Education", icon: BookOpen, group: "Ask & get guidance" },
+  { to: "/patient/report-analyzer", label: "Report & Image Analyzer", icon: ScanLine, group: "My health records" },
+  { to: "/patient/consents", label: "Consent Manager", icon: ShieldCheck, group: "My health records" },
+  { to: "/patient/health-score", label: "Health Score & Records", icon: HeartPulse, group: "My health records" },
+  { to: "/patient/timeline", label: "Timeline", icon: History, group: "My health records" },
+  { to: "/patient/appointments", label: "Appointments", icon: CalendarCheck, group: "Appointments & care" },
+  { to: "/patient/reminders", label: "Medicine Reminder", icon: AlarmClock, group: "Appointments & care" },
+  { to: "/patient/nearby-hospitals", label: "Nearby Hospitals", icon: MapPin, group: "Appointments & care" },
+  { to: "/patient/profile", label: "Profile", icon: UserCircle, group: "My account" },
+  { to: "/patient/settings", label: "Settings", icon: Settings, group: "My account" },
+  { to: "/patient/feedback", label: "Feedback", icon: Star, group: "My account" },
+];
+
+export const doctorNav = [
+  { to: "/doctor", label: "Dashboard", icon: LayoutDashboard, end: true },
+  { to: "/doctor/patients", label: "Patients", icon: Users, group: "Patients & care" },
+  { to: "/doctor/appointments", label: "Appointments", icon: CalendarClock, group: "Patients & care" },
+  { to: "/doctor/consultations", label: "Consultations", icon: ClipboardList, group: "Patients & care" },
+  { to: "/doctor/availability", label: "Availability", icon: Clock, group: "Patients & care" },
+  { to: "/doctor/follow-ups", label: "Follow-ups", icon: Repeat, group: "Patients & care" },
+  { to: "/doctor/ai-summary", label: "AI Patient Summary", icon: Sparkles, group: "Clinical tools" },
+  { to: "/doctor/prescription", label: "Prescription", icon: FileText, group: "Clinical tools" },
+  { to: "/doctor/drug-interactions", label: "Drug Interaction Record", icon: FlaskConical, group: "Clinical tools" },
+  { to: "/doctor/health-records", label: "Health Records", icon: ClipboardList, group: "Clinical tools" },
+  { to: "/doctor/education", label: "Education", icon: GraduationCap, group: "Clinical tools" },
+  { to: "/doctor/profile", label: "Profile", icon: UserCircle, group: "My account" },
+  { to: "/doctor/settings", label: "Settings", icon: Settings, group: "My account" },
+];
+
+export const adminNav = [
+  { to: "/admin", label: "Dashboard", icon: LayoutDashboard, end: true },
+  { to: "/admin/users", label: "User Management", icon: Users, group: "Trust & access" },
+  { to: "/admin/verification", label: "Doctor Verification", icon: ShieldCheck, group: "Trust & access" },
+  { to: "/admin/appointments", label: "Appointments", icon: CalendarClock, group: "Monitoring" },
+  { to: "/admin/analytics", label: "Reports & Analytics", icon: BarChart3, group: "Monitoring" },
+  { to: "/admin/ai-quality", label: "AI Quality Data", icon: Gauge, group: "Monitoring" },
+  { to: "/admin/early-warning", label: "Early Warning", icon: AlertTriangle, group: "Monitoring" },
+  { to: "/admin/knowledge-base", label: "Medical Knowledge Base", icon: Database, group: "Platform" },
+  { to: "/admin/feedback", label: "Feedback", icon: MessageSquare, group: "Platform" },
+  { to: "/admin/audit-log", label: "Audit Log", icon: FileClock, group: "Platform" },
+  { to: "/admin/settings", label: "System Settings", icon: Settings, group: "Platform" },
+];
+
+export const roleTheme = {
+  patient: {
+    gradient: "from-teal-600 to-cyan-600",
+    ring: "ring-teal-600",
+    text: "text-teal-700",
+    bg: "bg-teal-50",
+    active: "bg-[#0F766E] text-white",
+    soft: "bg-teal-500/10",
+    accent: "#0D9488",
+    accentDeep: "#0F766E",
+    spotlight: "rgba(13,148,136,0.14)",
+  },
+  doctor: {
+    gradient: "from-indigo-500 to-blue-600",
+    ring: "ring-indigo-500",
+    text: "text-indigo-700",
+    bg: "bg-indigo-50",
+    active: "bg-[#3B5BFF] text-white",
+    soft: "bg-indigo-500/10",
+    accent: "#3B5BFF",
+    accentDeep: "#2F4AD6",
+    spotlight: "rgba(59,91,255,0.14)",
+  },
+  admin: {
+    gradient: "from-violet-600 to-purple-700",
+    ring: "ring-violet-600",
+    text: "text-violet-700",
+    bg: "bg-violet-50",
+    active: "bg-[#7C3AED] text-white",
+    soft: "bg-violet-500/10",
+    accent: "#7C3AED",
+    accentDeep: "#6D28D9",
+    spotlight: "rgba(124,58,237,0.14)",
+  },
+};

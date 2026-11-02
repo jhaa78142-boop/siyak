@@ -1,0 +1,43 @@
+{
+  "name": "medimind-ai-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MediMind AI - Express + MongoDB backend (Firebase auth, Brevo email)",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch-path=server.js --watch-path=.env --watch-path=config --watch-path=controllers --watch-path=middleware --watch-path=models --watch-path=routes --watch-path=services --watch-path=utils server.js",
+    "seed": "node seed/seed.js",
+    "test:doctor": "node --test tests",
+    "test:rag": "node scripts/rag-smoke-test.js",
+    "test:imaging": "node scripts/imaging-smoke-test.js"
+  },
+  "dependencies": {
+    "@getbrevo/brevo": "^6.0.3",
+    "@langchain/community": "^0.3.0",
+    "@langchain/core": "^1.2.12",
+    "@langchain/textsplitters": "^0.1.0",
+    "@xenova/transformers": "^2.17.2",
+    "bcryptjs": "^2.4.3",
+    "chromadb": "^1.9.2",
+    "cloudinary": "^2.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "firebase-admin": "^12.7.0",
+    "groq-sdk": "^0.8.0",
+    "helmet": "^7.2.0",
+    "langchain": "^0.3.0",
+    "mongoose": "^8.9.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.16",
+    "pdf-img-convert": "^2.0.0",
+    "pdf-parse": "^2.4.5",
+    "pg": "^8.23.0",
+    "tesseract.js": "^7.0.0",
+    "uuid": "^11.0.3"
+  }
+}

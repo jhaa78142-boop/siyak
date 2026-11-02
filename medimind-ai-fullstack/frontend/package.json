@@ -1,0 +1,39 @@
+{
+  "name": "medimind-ai",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "firebase": "^11.10.0",
+    "framer-motion": "^11.11.17",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.8",
+    "kokoro-js": "^1.2.1",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^6.28.0",
+    "recharts": "^2.15.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.5.4",
+    "oxlint": "^0.15.0",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3",
+    "vite": "^6.0.5"
+  }
+}
